@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <style>
+            ul li {
+                    background: lightgrey;
+                    width: 200px;
+                    margin: 5px;
+                }
+            .sp-right{
+                position: absolute;
+                right: 1100px;
+                width: 30px;
+                background-color: lightslategray;
+                cursor: pointer;
+            }
+            .p-heading {
+                font:bold;
+                width: 300px;
+                background-color:lightgrey;
+            }
+            .div-content{
+                width: 300px;
+                background-color:lightsteelblue;
+                margin: 5px;
+            }
+        </style>
+        <script src="../js/angular.min.js"> </script>
+        <script src="../js/myapp.js"> </script>
+    </head>
+    <body ng-app="myToDoApp" ng-controller = "myAppCntr">
+        <div class="div-content">
+            <p class="p-heading">My ToDo List </p>
+            <ul>
+                <li ng-repeat="x in tasks">
+                    {{x}} &nbsp; &nbsp;<span ng-click="removeThisTask($index)" class="sp-right">&times;</span>
+                </li>
+            </ul>
+            &nbsp; &nbsp;
+            <input type="text" ng-model="addThisTask"/>
+            <input type="button" ng-click="addTask()" value="Add Task" />
+            <p style="color: red;">{{errortext}}</p>
+            <br/></br>
+        </div>
+    </body>
+
+</html>
